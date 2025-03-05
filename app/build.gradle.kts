@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -36,6 +38,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.firebase.auth)
     val fragment_version = "1.8.6"
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -46,4 +49,6 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("androidx.fragment:fragment:$fragment_version")
+    implementation(platform("com.google.firebase:firebase-bom:33.10.0"))
+    implementation("com.google.firebase:firebase-analytics")
 }

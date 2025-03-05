@@ -6,8 +6,49 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.CancellationException
+import kotlin.coroutines.resume
+import kotlin.coroutines.suspendCoroutine
 
 class MainActivity : AppCompatActivity() {
+
+//    private val firebaseAuth = FirebaseAuth.getInstance()
+//
+//    fun isLoggedIn(): Boolean {
+//        if (firebaseAuth.currentUser != null) {
+//            println("Already logged in!")
+//            return true
+//        }
+//
+//        return false
+//    }
+//
+//    suspend fun register( email: String, password: String): Boolean {
+//        try {
+//            val result = suspendCoroutine { continuation ->
+//
+//                firebaseAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener {
+//                    println("registered account, success!")
+//                }
+//                    .addOnFailureListener {
+//                        println("registration failure")
+//                        continuation.resume(false)
+//                    }
+//            }
+//
+//            return result
+//        } catch (e: Exception) {
+//            e.printStackTrace()
+//            if (e is CancellationException) throw e
+//            println("Register exception ${e.message}")
+//            return false
+//        }
+//
+//    }
+//
+//
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -41,8 +82,7 @@ class MainActivity : AppCompatActivity() {
                 commit()
             }
         }
-
-
-
     }
+
+
 }

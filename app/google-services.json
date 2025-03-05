@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "288718364415",
+    "project_id": "cse5236login",
+    "storage_bucket": "cse5236login.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:288718364415:android:568f46fb5360b3ea4c76ca",
+        "android_client_info": {
+          "package_name": "com.example.cse5236"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYV8h3ZsFMe5byrm8_uTkioZUqVpW1GU0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
