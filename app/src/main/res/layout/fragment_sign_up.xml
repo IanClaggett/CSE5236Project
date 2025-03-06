@@ -35,20 +35,14 @@
         android:textColor="@color/white"
         android:layout_marginTop="16dp" />
 
+
     <Button
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back"
         android:layout_marginTop="32dp"
         android:backgroundTint="@android:color/darker_gray"
+        android:text="Back"
         android:textColor="@android:color/white" />
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:layout_marginTop="16dp" />
 
 </LinearLayout>

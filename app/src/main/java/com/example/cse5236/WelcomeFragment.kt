@@ -21,12 +21,16 @@ class WelcomeFragment : Fragment() {
         val btnSignIn = view.findViewById<Button>(R.id.btnSignIn)
         val btnSignUp = view.findViewById<Button>(R.id.btnSignUp)
 
+        /*
+        May need to anonymize activity for SignIn/SignUp OR somehow load in MainActivity
+        when SignIn/SignUp fragments needed
+         */
         btnSignIn.setOnClickListener {
-            (activity as? MainActivity)?.navigateToFragment(SignIn())
+            (activity as? MainActivity)?.navigateToFragment(SignInFragment())
         }
 
         btnSignUp.setOnClickListener {
-            (activity as? MainActivity)?.navigateToFragment(SignUp())
+            (activity as? MainActivity)?.navigateToFragment(SignUpFragment())
         }
     }
 }

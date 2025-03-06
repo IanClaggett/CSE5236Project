@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun navigateToHomeScreen() {
-        startActivity(Intent(this, HomeActivity::class.java))
+        startActivity(Intent(this, UserSelectActivity::class.java))
         finish()
     }
 }

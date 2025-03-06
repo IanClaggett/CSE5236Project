@@ -6,13 +6,13 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 
-class HomeActivity : AppCompatActivity() {
+class UserSelectActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        setContentView(R.layout.activity_user_select)
 
         auth = FirebaseAuth.getInstance()
 
@@ -25,5 +25,6 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
 }
 

@@ -8,7 +8,7 @@ import android.widget.*
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 
-class SignIn : Fragment() {
+class SignInFragment : Fragment() {
 
     private lateinit var auth: FirebaseAuth
 
@@ -32,8 +32,8 @@ class SignIn : Fragment() {
         val emailEditText = view.findViewById<EditText>(R.id.editTextEmail)
         val passwordEditText = view.findViewById<EditText>(R.id.editTextPassword)
         val signInButton = view.findViewById<Button>(R.id.btnSignIn)
-        val progressBar = view.findViewById<ProgressBar>(R.id.progressBar)
 
+        //add button to @+id/textSignUp, navigating to SignUpFragment
         signInButton.setOnClickListener {
             val email = emailEditText.text.toString().trim()
             val password = passwordEditText.text.toString().trim()
@@ -43,10 +43,8 @@ class SignIn : Fragment() {
                 return@setOnClickListener
             }
 
-            progressBar.visibility = View.VISIBLE
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
-                    progressBar.visibility = View.GONE
                     if (task.isSuccessful) {
                         Toast.makeText(requireContext(), "Login successful!", Toast.LENGTH_SHORT).show()
                         (activity as? MainActivity)?.onUserSignedIn()

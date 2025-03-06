@@ -38,13 +38,7 @@
         android:backgroundTint="@android:color/darker_gray"
         android:textColor="@android:color/white" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:layout_marginTop="12dp"/>
-
+    <!-- change to button -->
     <TextView
         android:id="@+id/textSignUp"
         android:layout_width="wrap_content"
