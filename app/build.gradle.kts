@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-
+    alias(libs.plugins.kotlin.android)  // Use this instead of manually defining Kotlin version
     id("com.google.gms.google-services")
 }
 
@@ -50,5 +49,6 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("androidx.fragment:fragment:$fragment_version")
     implementation(platform("com.google.firebase:firebase-bom:33.10.0"))
+    implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-analytics")
 }
