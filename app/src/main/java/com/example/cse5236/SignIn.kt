@@ -1,61 +1,59 @@
 package com.example.cse5236
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.*
+import androidx.fragment.app.Fragment
+import com.google.firebase.auth.FirebaseAuth
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [SignUp.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SignIn : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_sign_in, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        val btnBack = view.findViewById<Button>(R.id.btnBack)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SignUp.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SignUp().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+        btnBack.setOnClickListener {
+            (activity as? MainActivity)?.navigateToFragment(WelcomeFragment())
+        }
+
+        auth = FirebaseAuth.getInstance()
+
+        val emailEditText = view.findViewById<EditText>(R.id.editTextEmail)
+        val passwordEditText = view.findViewById<EditText>(R.id.editTextPassword)
+        val signInButton = view.findViewById<Button>(R.id.btnSignIn)
+        val progressBar = view.findViewById<ProgressBar>(R.id.progressBar)
+
+        signInButton.setOnClickListener {
+            val email = emailEditText.text.toString().trim()
+            val password = passwordEditText.text.toString().trim()
+
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(requireContext(), "Please enter email and password", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
+
+            progressBar.visibility = View.VISIBLE
+            auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener { task ->
+                    progressBar.visibility = View.GONE
+                    if (task.isSuccessful) {
+                        Toast.makeText(requireContext(), "Login successful!", Toast.LENGTH_SHORT).show()
+                        (activity as? MainActivity)?.onUserSignedIn()
+                    } else {
+                        Toast.makeText(requireContext(), "Login failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                    }
+                }
+        }
     }
 }
