@@ -13,7 +13,7 @@ class WelcomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_welcome, container, false)
+        return inflater.inflate(R.layout.fragment_authentication, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -44,6 +44,9 @@ dependencies {
     // Add the dependency for the Realtime Database library
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation("com.google.firebase:firebase-database")
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.fragment.ktx)
     val fragment_version = "1.8.6"
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

@@ -6,35 +6,40 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.cse5236.R
 
-class AuthenticationActivity : AppCompatActivity() {
-
+class UserSelectActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_authentication)
-
-        showWelcomeScreen()
+        setContentView(R.layout.activity_user_select)
+        showSelectScreen()
     }
 
-    private fun showWelcomeScreen() {
+    private fun showSelectScreen() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.FrameFragmentView, WelcomeFragment())
+            .replace(R.id.FrameFragmentView, UserSelectFragment())
             .commit()
     }
 
+    //need for switching with UserAdd and UserSelect frag
     fun navigateToFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.FrameFragmentView, fragment)
             .commit()
     }
 
-    fun onAccountSignedIn() {
-        navigateToUserSelect()
-
+    fun onUserSelect() {
+        navigateToHomeScreen()
     }
 
-    private fun navigateToUserSelect() {
-        startActivity(Intent(this, UserSelectActivity::class.java))
+    fun onUserLogout() {
+        startActivity(Intent(this, AuthenticationActivity::class.java))
         finish()
     }
+
+    private fun navigateToHomeScreen() {
+        startActivity(Intent(this, UserHomeActivity::class.java))
+        finish()
+    }
+
 }
+

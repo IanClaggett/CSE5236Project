@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.example.cse5236.R
 import com.example.cse5236.viewmodel.AuthenticationViewModel
-import com.google.firebase.auth.FirebaseAuth
 
 class SignInFragment : Fragment() {
 
@@ -39,8 +38,7 @@ class SignInFragment : Fragment() {
 
             viewModel.signInStatus.observe(viewLifecycleOwner, Observer { status ->
                 if (status.toString() == "Sign in successful.") {
-                    Toast.makeText(requireContext(), "Login successful!", Toast.LENGTH_SHORT).show()
-                    (activity as? AuthenticationActivity)?.onUserSignedIn()
+                    (activity as? AuthenticationActivity)?.onAccountSignedIn()
                 } else {
                     Toast.makeText(requireContext(), status, Toast.LENGTH_SHORT).show()
                 }

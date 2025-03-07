@@ -1,4 +1,7 @@
 package com.example.cse5236.model
 
-class UserModel {
-}
+
+data class User(
+    val difficulty: String,
+    val scores: Score
+)

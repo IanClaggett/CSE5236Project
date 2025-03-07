@@ -34,7 +34,4 @@ class AuthenticationViewModel : ViewModel() {
             }
     }
 
-    fun signOut(){
-        authRepo.signOut()
-    }
 }
