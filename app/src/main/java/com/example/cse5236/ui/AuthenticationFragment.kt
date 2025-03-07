@@ -1,4 +1,4 @@
-package com.example.cse5236
+package com.example.cse5236.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import com.example.cse5236.R
 
 class WelcomeFragment : Fragment() {
 
@@ -21,16 +22,12 @@ class WelcomeFragment : Fragment() {
         val btnSignIn = view.findViewById<Button>(R.id.btnSignIn)
         val btnSignUp = view.findViewById<Button>(R.id.btnSignUp)
 
-        /*
-        May need to anonymize activity for SignIn/SignUp OR somehow load in MainActivity
-        when SignIn/SignUp fragments needed
-         */
         btnSignIn.setOnClickListener {
-            (activity as? MainActivity)?.navigateToFragment(SignInFragment())
+            (activity as? AuthenticationActivity)?.navigateToFragment(SignInFragment())
         }
 
         btnSignUp.setOnClickListener {
-            (activity as? MainActivity)?.navigateToFragment(SignUpFragment())
+            (activity as? AuthenticationActivity)?.navigateToFragment(SignUpFragment())
         }
     }
 }

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.example.cse5236.ui.AuthenticationActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class UserSelectActivity : AppCompatActivity() {
@@ -21,7 +22,7 @@ class UserSelectActivity : AppCompatActivity() {
 
         btnLogout.setOnClickListener {
             auth.signOut()  // Logs the user out
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, AuthenticationActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK  // Clears activity stack
             startActivity(intent)
         }
