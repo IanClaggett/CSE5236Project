@@ -24,8 +24,13 @@ class UserRepository() {
     }
 
     //need to impl, go thru all users, make combined list of scores in each user
-    fun getScores(): Task<QuerySnapshot>{
+    fun getAccountScores(): Task<QuerySnapshot>{
         return getUsers()
+    }
+
+    fun getUserScores(userId: String): Task<QuerySnapshot> {
+        val userDoc = users.document(userId)
+        return userDoc.collection("scores").get()
     }
 
 

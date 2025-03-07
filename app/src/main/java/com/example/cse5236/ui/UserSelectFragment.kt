@@ -27,8 +27,9 @@ class UserSelectFragment : Fragment() {
         val addUserBtn = view.findViewById<Button>(R.id.addUserBtn)
         val accountSettings =view.findViewById<Button>(R.id.accountSettings)
         val viewModel = UserViewModel()
-
+        //display usernames, use the livedata
         logoutBtn.setOnClickListener {
+            viewModel.getUsers()
             viewModel.signOut()
             (activity as? UserSelectActivity)?.onUserLogout()
         }
