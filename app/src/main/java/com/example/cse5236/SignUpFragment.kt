@@ -6,7 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.database
+import com.google.firebase.firestore.firestore
 
 class SignUpFragment : Fragment() {
 
@@ -45,7 +49,21 @@ class SignUpFragment : Fragment() {
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        Toast.makeText(requireContext(), "Registration Successful", Toast.LENGTH_SHORT).show()
+                        //Toast.makeText(requireContext(), "Registration Successful", Toast.LENGTH_SHORT).show()
+
+                        val initialValues = arrayListOf("DefaultUsername", 0)
+                        val initMap = mapOf(email to initialValues)
+
+                        val fireStore = Firebase.firestore
+
+                        fireStore.collection("UserInformation").document(email).set(initMap).addOnSuccessListener {
+                            Toast.makeText(requireContext(), "User Data Initiliazed Successfully", Toast.LENGTH_LONG).show()
+                            System.out.println("SUCCESS")
+                        }.addOnFailureListener{
+                            Toast.makeText(requireContext(), "User Data Failed Initialization", Toast.LENGTH_LONG).show()
+                            System.out.println("FAILURE")
+                        }
+
                         (activity as? MainActivity)?.onUserSignedIn()
                     } else {
                         Toast.makeText(requireContext(), "Error: ${task.exception?.message}", Toast.LENGTH_LONG).show()
