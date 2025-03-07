@@ -38,6 +38,12 @@ android {
 
 dependencies {
     implementation(libs.firebase.auth)
+    implementation(libs.firebase.firestore.ktx)
+    implementation(platform("com.google.firebase:firebase-bom:33.10.0"))
+
+    // Add the dependency for the Realtime Database library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation("com.google.firebase:firebase-database")
     val fragment_version = "1.8.6"
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
