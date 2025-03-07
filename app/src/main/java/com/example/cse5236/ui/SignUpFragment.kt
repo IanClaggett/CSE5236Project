@@ -9,6 +9,8 @@ import android.widget.*
 import androidx.lifecycle.Observer
 import com.example.cse5236.R
 import com.example.cse5236.viewmodel.AuthenticationViewModel
+import com.google.firebase.Firebase
+import com.google.firebase.firestore.firestore
 
 class SignUpFragment : Fragment() {
 
@@ -39,6 +41,15 @@ class SignUpFragment : Fragment() {
 
             viewModel.signUpStatus.observe(viewLifecycleOwner, Observer { status ->
                 if (status.toString() == "Sign up successful.") {
+
+                    val initMap = mutableMapOf("Username" to "DefaultUsername", "Score" to 0)
+                    val fireStore = Firebase.firestore
+                    fireStore.collection("UserInformationDB").document(email).set(initMap).addOnSuccessListener {
+                        System.out.println("SUCCESS")
+                    }.addOnFailureListener{
+                        System.out.println("FAILURE")
+                    }
+
                     (activity as? AuthenticationActivity)?.onAccountSignedIn()
                 } else {
                     Toast.makeText(requireContext(), status, Toast.LENGTH_SHORT).show()

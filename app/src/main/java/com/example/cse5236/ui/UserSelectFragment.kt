@@ -25,11 +25,17 @@ class UserSelectFragment : Fragment() {
 
         val logoutBtn = view.findViewById<Button>(R.id.logoutBtn)
         val addUserBtn = view.findViewById<Button>(R.id.addUserBtn)
+        val accountSettings =view.findViewById<Button>(R.id.accountSettings)
         val viewModel = UserViewModel()
 
         logoutBtn.setOnClickListener {
             viewModel.signOut()
             (activity as? UserSelectActivity)?.onUserLogout()
+        }
+
+        accountSettings.setOnClickListener{
+            // Need to redirect to accountSettingsActivity Here
+            (activity as? AccountSettingsActivity)
         }
 
 

@@ -27,8 +27,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AccountSettingsActivity"
-            android:exported="true" />
+            android:name=".ui.AccountSettingsActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.UserSelectActivity"
             android:exported="true" />
