@@ -34,8 +34,7 @@ class UserSelectFragment : Fragment() {
         }
 
         accountSettings.setOnClickListener{
-            // Need to redirect to accountSettingsActivity Here
-            (activity as? AccountSettingsActivity)
+            (activity as? UserSelectActivity)?.onUserSettings()
         }
 
 
