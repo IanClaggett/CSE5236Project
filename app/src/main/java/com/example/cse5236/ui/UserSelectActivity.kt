@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.cse5236.R
+import com.example.cse5236.model.User
 
 class UserSelectActivity : AppCompatActivity() {
 
@@ -20,24 +21,15 @@ class UserSelectActivity : AppCompatActivity() {
             .commit()
     }
 
-    //need for switching with UserAdd and UserSelect frag
-    fun navigateToFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.FrameFragmentView, fragment)
-            .commit()
-    }
 
-    fun onUserSelect() {
-        navigateToHomeScreen()
+    fun onUserSelect(user: User) {
+        //TODO: send user to userHomeActivity
+        startActivity(Intent(this, UserHomeActivity::class.java))
+        finish()
     }
 
     fun onUserLogout() {
         startActivity(Intent(this, AuthenticationActivity::class.java))
-        finish()
-    }
-
-    private fun navigateToHomeScreen() {
-        startActivity(Intent(this, UserHomeActivity::class.java))
         finish()
     }
 

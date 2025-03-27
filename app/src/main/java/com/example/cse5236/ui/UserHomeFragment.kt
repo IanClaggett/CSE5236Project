@@ -11,9 +11,6 @@ import com.example.cse5236.viewmodel.UserViewModel
 
 class UserHomeFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = UserHomeFragment()
-    }
 
     private val viewModel: UserViewModel by viewModels()
 
