@@ -38,7 +38,7 @@ android {
 
 dependencies {
     implementation(libs.firebase.auth)
-    implementation(libs.firebase.firestore.ktx)
+    implementation("com.google.firebase:firebase-firestore-ktx:24.8.1")
     implementation(platform("com.google.firebase:firebase-bom:33.10.0"))
 
     // Add the dependency for the Realtime Database library
@@ -58,6 +58,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("androidx.fragment:fragment:$fragment_version")
     implementation(platform("com.google.firebase:firebase-bom:33.10.0"))
+    implementation("com.google.code.gson:gson:2.10.1")
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-analytics")
 }

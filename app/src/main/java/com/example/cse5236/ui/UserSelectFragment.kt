@@ -18,6 +18,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.cse5236.R
 import com.example.cse5236.model.User
 import com.example.cse5236.viewmodel.UserViewModel
+import android.content.Intent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -67,6 +68,11 @@ class UserSelectFragment : Fragment() {
             (activity as? UserSelectActivity)?.onUserSettings()
         }
 
+        val startGameBtn = view.findViewById<Button>(R.id.btnStartGame)
+        startGameBtn.setOnClickListener {
+            val intent = Intent(requireContext(), DifficultyActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun loadUsers(users: List<User>, view: View){
