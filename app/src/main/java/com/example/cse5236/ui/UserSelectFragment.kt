@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import com.example.cse5236.R
 import com.example.cse5236.viewmodel.UserViewModel
+import android.content.Intent
 
 
 class UserSelectFragment : Fragment() {
@@ -37,6 +38,11 @@ class UserSelectFragment : Fragment() {
             (activity as? UserSelectActivity)?.onUserSettings()
         }
 
+        val startGameBtn = view.findViewById<Button>(R.id.btnStartGame)
+        startGameBtn.setOnClickListener {
+            val intent = Intent(requireContext(), DifficultyActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 

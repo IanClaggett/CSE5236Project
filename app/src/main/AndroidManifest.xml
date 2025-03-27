@@ -32,6 +32,15 @@
         <activity
             android:name=".ui.UserSelectActivity"
             android:exported="true" />
+        <activity
+            android:name=".ui.DifficultyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.GameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.ScoreActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

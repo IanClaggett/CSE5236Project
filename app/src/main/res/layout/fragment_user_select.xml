@@ -20,8 +20,7 @@
             android:id="@+id/btnStartGame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Start a Game"
-            android:onClick="onStartGameClicked"/>
+            android:text="Start a Game" />
 
         <Button
             android:layout_width="wrap_content"
