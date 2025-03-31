@@ -29,7 +29,7 @@ class ScoreActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-
+//TODO: CHANGE TO USERHOME
         homeBtn.setOnClickListener {
             val intent = Intent(this, UserSelectActivity::class.java)
             startActivity(intent)

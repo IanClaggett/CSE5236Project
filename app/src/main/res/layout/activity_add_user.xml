@@ -8,23 +8,13 @@
     android:background="@color/anime_theme_background">
 
     <EditText
-        android:id="@+id/emailInput"
+        android:id="@+id/usernameInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
+        android:hint="Username"
         android:inputType="textEmailAddress"
         android:padding="12dp"
         android:background="@drawable/custom_edittext_background" />
-
-    <EditText
-        android:id="@+id/passwordInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:padding="12dp"
-        android:background="@drawable/custom_edittext_background"
-        android:layout_marginTop="10dp" />
 
     <Button
         android:id="@+id/addUserButton"

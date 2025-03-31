@@ -3,7 +3,6 @@ package com.example.cse5236.ui
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import com.example.cse5236.R
 import com.example.cse5236.model.User
 
@@ -23,7 +22,6 @@ class UserSelectActivity : AppCompatActivity() {
 
 
     fun onUserSelect(user: User) {
-        //TODO: send user to userHomeActivity
         startActivity(Intent(this, UserHomeActivity::class.java))
         finish()
     }
@@ -39,12 +37,12 @@ class UserSelectActivity : AppCompatActivity() {
     }
 
     fun onAddAccount(){
-        startActivity(Intent(this,AccountAddActivity::class.java))
+        startActivity(Intent(this, AccountAddActivity::class.java))
         finish()
     }
 
     fun onManageAccount(){
-        startActivity(Intent(this,ManageUsersActivity::class.java))
+        startActivity(Intent(this, ManageUsersActivity::class.java))
         finish()
     }
 

@@ -21,6 +21,7 @@ import com.example.cse5236.viewmodel.UserViewModel
 import android.content.Intent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 
 class UserSelectFragment : Fragment() {
@@ -29,10 +30,6 @@ class UserSelectFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        lifecycleScope.launch(Dispatchers.IO) {
-            viewModel.getUsers()
-        }
-
     }
 
     override fun onCreateView(
@@ -55,7 +52,7 @@ class UserSelectFragment : Fragment() {
         val acctManagementBtn = view.findViewById<Button>(R.id.btnAcctManagement)
         val viewModel = UserViewModel()
         val accountSettings = view.findViewById<Button>(R.id.accountSettings)
-
+        viewModel.getUsers()
         viewModel.usersLiveData.observe(viewLifecycleOwner, Observer { users ->
             loadUsers(users, view)
         })
@@ -63,15 +60,11 @@ class UserSelectFragment : Fragment() {
             viewModel.signOut()
             (activity as? UserSelectActivity)?.onUserLogout()
         }
-        addUserBtn.setOnClickListener {
-            Log.i("View", "UserSelectFragment onViewCreated")
-            viewModel.addUser("user" + viewModel.getUserAmount())
-        }
         accountSettings.setOnClickListener{
             (activity as? UserSelectActivity)?.onUserSettings()
         }
-
         addUserBtn.setOnClickListener{
+            Log.i("View", "UserSelectFragment onViewCreated")
             (activity as? UserSelectActivity)?.onAddAccount()
         }
 

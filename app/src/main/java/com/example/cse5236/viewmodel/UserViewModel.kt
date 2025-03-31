@@ -103,6 +103,7 @@ class UserViewModel : ViewModel() {
         var account: Account? = null
         if (accRepo.getAccount() != null){
             account = accRepo.getAccount()
+            Log.i("ViewModel", "$account")
         } else {
             Log.e("ViewModel", "Account is null in getUsers()")
         }

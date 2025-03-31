@@ -1,5 +1,6 @@
 package com.example.cse5236.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -16,11 +17,15 @@ class UserHomeActivity : AppCompatActivity() {
         val quotesBtn = findViewById<Button>(R.id.btnQuotes)
 
         changeUserBtn.setOnClickListener{
-            //back to UserSelectFragment
+            val intent = Intent(this, UserSelectActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
         playBtn.setOnClickListener{
-            //go to game
+            val intent = Intent(this, DifficultyActivity::class.java)
+            startActivity(intent)
+            finish()
         }
         quotesBtn.setOnClickListener{
             //go to quotes screen
