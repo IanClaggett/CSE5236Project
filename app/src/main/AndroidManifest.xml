@@ -41,6 +41,12 @@
         <activity
             android:name=".ui.ScoreActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.AccountAddActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.ManageUsersActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

@@ -26,6 +26,8 @@ class UserSelectFragment : Fragment() {
 
         val logoutBtn = view.findViewById<Button>(R.id.logoutBtn)
         val addUserBtn = view.findViewById<Button>(R.id.addUserBtn)
+        val settingBtn = view.findViewById<Button>(R.id.btnSettings)
+        val acctManagementBtn = view.findViewById<Button>(R.id.btnAcctManagement)
         val accountSettings =view.findViewById<Button>(R.id.accountSettings)
         val viewModel = UserViewModel()
 
@@ -38,6 +40,13 @@ class UserSelectFragment : Fragment() {
             (activity as? UserSelectActivity)?.onUserSettings()
         }
 
+        addUserBtn.setOnClickListener{
+            (activity as? UserSelectActivity)?.onAddAccount()
+        }
+
+        acctManagementBtn.setOnClickListener{
+            (activity as? UserSelectActivity)?.onManageAccount()
+        }
         val startGameBtn = view.findViewById<Button>(R.id.btnStartGame)
         startGameBtn.setOnClickListener {
             val intent = Intent(requireContext(), DifficultyActivity::class.java)

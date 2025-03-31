@@ -46,5 +46,15 @@ class UserSelectActivity : AppCompatActivity() {
         finish()
     }
 
+    fun onAddAccount(){
+        startActivity(Intent(this,AccountAddActivity::class.java))
+        finish()
+    }
+
+    fun onManageAccount(){
+        startActivity(Intent(this,ManageUsersActivity::class.java))
+        finish()
+    }
+
 }
 

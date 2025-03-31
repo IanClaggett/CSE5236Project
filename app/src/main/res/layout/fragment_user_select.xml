@@ -36,6 +36,12 @@
             android:onClick="onSettingsClicked"/>
 
         <Button
+            android:id="@+id/btnAcctManagement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Users"/>
+
+        <Button
             android:id="@+id/addUserBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
