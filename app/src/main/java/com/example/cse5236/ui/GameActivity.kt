@@ -29,6 +29,7 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
     private var score = 0
     private var highScore = 0
     private var characterHintShown = false
+    private var scoreUpdating = false
 
     private lateinit var quoteText: TextView
     private lateinit var hintLabel: TextView
@@ -157,15 +158,21 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
                 hintLabel.text = "Hint: ${quoteList[currentIndex].character}"
             }
 
-            // Tilt Up (Correct)
-            if (z < -7) {
-                score++
+            // Tilt Down (Skip)
+            if (z < -5 ) {
+                Thread.sleep(100)
+                hintLabel.text = ""
                 showNextQuote()
             }
 
-            // Tilt Down (Skip)
-            if (z > 7) {
+            // Tilt Up (Correct)
+            if (z > 7 && !scoreUpdating && z < 7.8) {
+                scoreUpdating = true;
+                Thread.sleep(100)
+                score++
+                hintLabel.text = ""
                 showNextQuote()
+                scoreUpdating = false;
             }
         }
     }
