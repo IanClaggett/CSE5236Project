@@ -42,8 +42,8 @@ class AccountSettingsActivity: AppCompatActivity() {
                 }
                 Toast.makeText(this, "Updated username", Toast.LENGTH_SHORT).show()
             }
-            val intent = Intent(this, UserHomeActivity:: class.java)
-            startActivity(intent)
+            startActivity(Intent(this,UserSelectActivity::class.java))
+            finish()
         }
 
         deleteAccount.setOnClickListener{
