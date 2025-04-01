@@ -49,7 +49,7 @@ class UserSelectFragment : Fragment() {
         val logoutBtn = view.findViewById<Button>(R.id.logoutBtn)
         val addUserBtn = view.findViewById<Button>(R.id.addUserBtn)
         val settingBtn = view.findViewById<Button>(R.id.btnSettings)
-        val acctManagementBtn = view.findViewById<Button>(R.id.btnAcctManagement)
+        //val acctManagementBtn = view.findViewById<Button>(R.id.btnAcctManagement)
         val viewModel = UserViewModel()
         val accountSettings = view.findViewById<Button>(R.id.accountSettings)
         viewModel.getUsers()
@@ -68,8 +68,12 @@ class UserSelectFragment : Fragment() {
             (activity as? UserSelectActivity)?.onAddAccount()
         }
 
-        acctManagementBtn.setOnClickListener{
+        /*acctManagementBtn.setOnClickListener{
             (activity as? UserSelectActivity)?.onManageAccount()
+        }
+        */
+        settingBtn.setOnClickListener{
+            (activity as? UserSelectActivity)?.onSettings()
         }
         val startGameBtn = view.findViewById<Button>(R.id.btnStartGame)
         startGameBtn.setOnClickListener {
@@ -114,6 +118,7 @@ class UserSelectFragment : Fragment() {
 
         val imageView = ImageView(requireContext())
         imageView.setImageResource(R.drawable.default_profile_picture)
+
 
         val textView = TextView(requireContext())
         textView.text = user.username

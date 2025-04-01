@@ -6,6 +6,9 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cse5236.R
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
+import com.google.firebase.firestore.firestore
 
 class ScoreActivity : AppCompatActivity() {
 
@@ -21,6 +24,29 @@ class ScoreActivity : AppCompatActivity() {
         val playAgainBtn: Button = findViewById(R.id.btn_play_again)
         val homeBtn: Button = findViewById(R.id.btn_home)
 
+
+        val user = Firebase.auth.currentUser
+
+        user?.let {
+            val fireStore = Firebase.firestore
+            val docRef = fireStore.collection("UserInformationDB").document(it.email.toString())
+            docRef.get().addOnSuccessListener { document ->
+                if (document != null) {
+                    lateinit var userData: Map<Any, Any>
+                    userData = document.data as Map<Any, Any>
+                    val score = Integer.parseInt(userData.get("Username").toString())
+                    val username = userData.get("Score")
+                    if(score < finalScore){
+                        val updateMap = mutableMapOf("Username" to username.toString(), "Score" to finalScore)
+                        fireStore.collection("UserInformationDB").document(it.email.toString()).set(updateMap).addOnSuccessListener {
+                            System.out.println("SUCCESS")
+                        }.addOnFailureListener{
+                            System.out.println("FAILURE")
+                        }
+                    }
+                }
+            }
+        }
         scoreText.text = "Your Score: $finalScore"
         highScoreText.text = "High Score: $highScore"
 
