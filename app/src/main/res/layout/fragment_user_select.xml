@@ -1,13 +1,39 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/anime_theme_primary" />
+
+    <ImageView
+        android:id="@+id/topBackgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_gravity="top"
+        android:scaleType="centerCrop"
+        android:src="@drawable/purple_anime_background" />
+
+    <ImageView
+        android:id="@+id/bottomBackgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_gravity="bottom"
+        android:scaleType="centerCrop"
+        android:src="@drawable/purple_anime_background" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/vignette_overlay" />
+
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:padding="16dp">
 
         <GridLayout
             android:id="@+id/usersContainer"
@@ -18,49 +44,68 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="No users created yet."
+                android:textColor="@android:color/white"
                 android:textSize="20sp"/>
         </GridLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Welcome to the Home Screen!"
-            android:textSize="20sp"
-            android:padding="16dp"/>
+            android:padding="12dp"
+            android:textColor="@android:color/white"
+            android:textSize="28sp"
+            android:shadowColor="#FFFFFF"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="12"
+            android:fontFamily="sans-serif-medium"/>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
+            style="@style/AnimeButton"
             android:id="@+id/btnStartGame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Start a Game" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
+            style="@style/AnimeButton"
+            android:id="@+id/accountSettings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/accountSettings"
             android:text="Account"/>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
+            style="@style/AnimeButton"
+            android:id="@+id/addUserBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add User"/>
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/AnimeButton"
             android:id="@+id/btnSettings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Settings"
             android:onClick="onSettingsClicked"/>
 
-        <Button
-            android:id="@+id/addUserBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#6ED563"
-            android:text="Add User"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|center_horizontal"
+        android:paddingBottom="10dp">
 
         <Button
             android:id="@+id/logoutBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="#E40606"
             android:text="Logout"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="@android:color/holo_red_dark"
             android:textColor="@android:color/white" />
     </LinearLayout>
+
 </FrameLayout>

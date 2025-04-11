@@ -5,27 +5,38 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="24dp">
+    android:padding="24dp"
+    android:background="@drawable/anime_home">
+
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="386dp"
         android:layout_height="wrap_content"
-        android:text="Welcome to the Anime Guessing Game!"
-        android:textSize="22sp"
-        android:textStyle="bold"
         android:gravity="center"
-        android:paddingBottom="16dp"/>
+        android:paddingBottom="16dp"
+        android:text="Welcome to the Anime Guessing Game!"
+        android:textColor="@color/white"
+        android:textSize="32dp"
+        android:shadowColor="#FFFFFF"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="12"
+        android:fontFamily="sans-serif-medium"/>
 
     <Button
         android:id="@+id/btnSignIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign In"/>
+        style="@style/AnimeButton"
+        android:layout_width="112dp"
+        android:layout_height="60dp"
+        android:text="Sign In"
+        android:textSize="18sp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        style="@style/AnimeButton"
         android:id="@+id/btnSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign Up"
-        android:layout_marginTop="12dp"/>
+        android:layout_width="112dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10sp"
+        android:textSize="18sp"
+        android:text="Sign Up" />
 </LinearLayout>

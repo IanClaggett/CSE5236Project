@@ -5,26 +5,33 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@drawable/purple_anime_background">
 
     <Button
         android:id="@+id/btnChangeUser"
+        style="@style/AnimeButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:textSize="18sp"
         android:text="Change User"/>
 
     <Button
         android:id="@+id/btnPlay"
+        style="@style/AnimeButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:text="Play"
+        android:textSize="18sp"
         android:layout_marginTop="10dp"/>
 
     <Button
         android:id="@+id/btnQuotes"
+        style="@style/AnimeButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:text="Quotes"
+        android:textSize="18sp"
         android:layout_marginTop="10dp"/>
 
 </LinearLayout>

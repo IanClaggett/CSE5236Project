@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="anime_theme_background">#1E1E2E</color>
+    <color name="anime_theme_background">#292731</color>
     <color name="anime_button_normal">#FF69B4</color>
     <color name="anime_button_pressed">#C71585</color>
-    <color name="anime_edittext_background">#2A2A3A</color>
+    <color name="anime_edittext_background">#F698C2</color>
     <color name="anime_edittext_border">#FF69B4</color>
     <color name="white">#FFFFFF</color>
-    <color name="anime_theme_primary">#546E7A</color>
-    <color name="anime_theme_primary_dark">#37474F</color>
+    <color name="anime_theme_primary">#49089B</color>
+    <color name="anime_theme_primary_dark">#8323DC</color>
 </resources>

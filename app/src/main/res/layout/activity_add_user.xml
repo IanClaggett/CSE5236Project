@@ -5,23 +5,40 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:gravity="center"
-    android:background="@color/anime_theme_background">
+    android:background="@drawable/purple_anime_background">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter a username to add a user to this account!"
+        android:textColor="@color/white"
+        android:textSize="28dp"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:shadowColor="#FFFFFF"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="12"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginBottom="24dp" />
 
     <EditText
         android:id="@+id/usernameInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Username"
+        android:textColorHint="#BC4784"
         android:inputType="textEmailAddress"
         android:padding="12dp"
         android:background="@drawable/custom_edittext_background" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        style="@style/AnimeButton"
         android:id="@+id/addUserButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add User"
-        android:background="@drawable/custom_button_background"
+        android:textSize="18sp"
         android:textColor="@color/white"
         android:layout_marginTop="16dp" />
 </LinearLayout>

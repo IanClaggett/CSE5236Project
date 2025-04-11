@@ -2,56 +2,29 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="@drawable/purple_anime_background">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:padding="24dp">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Account Settings"
-            android:padding="20sp"
-            android:textSize="40sp"/>
+            android:textColor="@color/white"
+            android:padding="20dp"
+            android:textSize="36sp"
+            android:textAlignment="center"
+            android:shadowColor="#FFFFFF"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="12"
+            android:fontFamily="sans-serif-medium" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Email:"
-                android:textSize="20sp"
-                android:padding="16dp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:padding="16dp"
-                android:id="@+id/accountEmailTV"
-                android:text = ""
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Username:"
-                android:textSize="20sp"
-                android:padding="16dp"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:padding="16dp"
-                android:id="@+id/accountUsernameTV"
-                android:text = ""
-                />
-        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,29 +33,92 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Email:"
                 android:textSize="20sp"
                 android:padding="16dp"
-                android:text="Score:"/>
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif-medium" />
 
             <TextView
+                android:id="@+id/accountEmailTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:padding="16dp"
-                android:id="@+id/accountScoreTV"
-                android:text=""/>
+                android:text=""
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif-medium" />
         </LinearLayout>
-        <Button
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username:"
+                android:textSize="20sp"
+                android:padding="16dp"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif-medium" />
+
+            <EditText
+                android:id="@+id/accountUsernameTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="20sp"
+                android:padding="16dp"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif-medium"
+                android:backgroundTint="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Score:"
+                android:textSize="20sp"
+                android:padding="16dp"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif-medium" />
+
+            <TextView
+                android:id="@+id/accountScoreTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="20sp"
+                android:padding="16dp"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif-medium" />
+        </LinearLayout>
+
+        <Button
             android:id="@+id/updateAccountBtn"
-            android:text="Update Account"/>
-        <Button
+            style="@style/AnimeButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text = "Delete Account"
+            android:layout_height="60dp"
+            android:text="Update Account"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp" />
+
+        <Button
             android:id="@+id/deleteAccountBtn"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Delete Account"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"
             android:backgroundTint="@android:color/holo_red_dark"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:fontFamily="sans-serif-medium" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

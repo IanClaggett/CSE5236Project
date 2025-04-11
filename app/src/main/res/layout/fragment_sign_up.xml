@@ -5,13 +5,15 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:gravity="center"
-    android:background="@color/anime_theme_background">
+    android:background="@drawable/purple_anime_background">
 
     <EditText
         android:id="@+id/emailInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
+        android:textColorHint="#BC4784"
+
         android:inputType="textEmailAddress"
         android:padding="12dp"
         android:background="@drawable/custom_edittext_background" />
@@ -21,18 +23,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
+        android:textColorHint="#BC4784"
         android:inputType="textPassword"
         android:padding="12dp"
         android:background="@drawable/custom_edittext_background"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="12dp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        style="@style/AnimeButton"
         android:id="@+id/signUpButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sign Up"
-        android:background="@drawable/custom_button_background"
-        android:textColor="@color/white"
+        android:textSize="16dp"
         android:layout_marginTop="16dp" />
 
 
@@ -43,6 +46,8 @@
         android:layout_marginTop="32dp"
         android:backgroundTint="@android:color/darker_gray"
         android:text="Back"
+        android:textSize="16dp"
+
         android:textColor="@android:color/white" />
 
 </LinearLayout>

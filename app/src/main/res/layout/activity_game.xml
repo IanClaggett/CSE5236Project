@@ -1,31 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="24dp">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/quoteText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Quote will appear here"
-        android:textSize="24sp"
-        android:layout_marginBottom="16dp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/anime_theme_primary_dark" />
 
-    <TextView
-        android:id="@+id/hintLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="16sp"
-        android:textColor="@android:color/holo_orange_dark" />
+    <ImageView
+        android:id="@+id/topBackgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="top"
+        android:scaleType="centerCrop"
+        android:src="@drawable/purple_anime_background" />
 
-    <TextView
-        android:id="@+id/timerText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Time: 60s"
-        android:textSize="18sp" />
-</LinearLayout>
+    <ImageView
+        android:id="@+id/bottomBackgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="bottom"
+        android:scaleType="centerCrop"
+        android:src="@drawable/purple_anime_background" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/vignette_overlay" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/quoteText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quote will appear here!"
+            android:textSize="36sp"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="24dp"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/hintLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="24sp"
+            android:textColor="#FF8901"
+            android:shadowColor="#FF9800"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="12"
+            android:layout_marginBottom="12dp"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/timerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time: 60s"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+</FrameLayout>

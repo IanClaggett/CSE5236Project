@@ -5,26 +5,31 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="24dp">
-
+    android:padding="24dp"
+    android:background="@drawable/purple_anime_background">
     <Button
         android:id="@+id/btn_easy"
+        style="@style/AnimeButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:text="Easy (2 min)"
+        android:textSize="18sp"
         android:layout_marginBottom="16dp" />
 
     <Button
         android:id="@+id/btn_medium"
+        style="@style/AnimeButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:text="Medium (1 min)"
+        android:textSize="18sp"
         android:layout_marginBottom="16dp" />
 
     <Button
         android:id="@+id/btn_hard"
+        style="@style/AnimeButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hard (30 sec)" />
+        android:layout_height="60dp"
+        android:text="Hard (30 sec)"
+        android:textSize="18sp" />
 </LinearLayout>
-

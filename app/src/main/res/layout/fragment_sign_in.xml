@@ -4,29 +4,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp"
-    android:gravity="center">
+    android:padding="16dp"
+    android:gravity="center"
+    android:background="@drawable/purple_anime_background">
 
     <EditText
         android:id="@+id/editTextEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:background="@drawable/custom_edittext_background"
         android:hint="Email"
-        android:inputType="textEmailAddress"/>
+        android:inputType="textEmailAddress"
+        android:textColorHint="#BC4784" />
 
     <EditText
         android:id="@+id/editTextPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/custom_edittext_background"
         android:hint="Password"
         android:inputType="textPassword"
-        android:layout_marginTop="12dp"/>
+        android:textColorHint="#BC4784" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        style="@style/AnimeButton"
         android:id="@+id/btnSignIn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sign In"
+        android:textSize="16dp"
         android:layout_marginTop="16dp"/>
 
     <Button
@@ -38,12 +47,4 @@
         android:backgroundTint="@android:color/darker_gray"
         android:textColor="@android:color/white" />
 
-    <!-- change to button -->
-    <TextView
-        android:id="@+id/textSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Don't have an account? Sign Up"
-        android:textColor="@android:color/holo_blue_dark"
-        android:layout_marginTop="16dp"/>
 </LinearLayout>

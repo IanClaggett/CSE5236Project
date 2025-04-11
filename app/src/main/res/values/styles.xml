@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AnimeButton">
+        <item name="android:padding">12dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:backgroundTint">#7E238C</item>
+        <item name="strokeColor">#673AB7</item>
+        <item name="strokeWidth">2dp</item>
+    </style>
+
+</resources>
