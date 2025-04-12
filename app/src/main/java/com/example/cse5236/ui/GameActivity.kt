@@ -12,6 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cse5236.R
+import com.example.cse5236.viewmodel.GameViewModel
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 import com.google.gson.reflect.TypeToken
@@ -26,10 +27,10 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
     private var shakeThreshold = 12f
     private var quoteList: List<Quote> = emptyList()
     private var currentIndex = 0
-    private var score = 0
+    var score = 0
     private var highScore = 0
     private var characterHintShown = false
-    private var scoreUpdating = false
+    var scoreUpdating = false
 
     private lateinit var quoteText: TextView
     private lateinit var hintLabel: TextView
@@ -76,7 +77,7 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
         quoteList = Gson().fromJson(json, type)
     }
 
-    private fun showNextQuote() {
+    fun showNextQuote() {
         if (quoteList.isNullOrEmpty()) {
             Toast.makeText(this, "No quotes found!", Toast.LENGTH_SHORT).show()
             finish()
@@ -160,19 +161,15 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
 
             // Tilt Down (Skip)
             if (z < -5 ) {
-                Thread.sleep(100)
                 hintLabel.text = ""
-                showNextQuote()
+                GameViewModel().skip(this)
             }
 
             // Tilt Up (Correct)
             if (z > 7 && !scoreUpdating && z < 7.8) {
                 scoreUpdating = true;
-                Thread.sleep(100)
-                score++
                 hintLabel.text = ""
-                showNextQuote()
-                scoreUpdating = false;
+                GameViewModel().updateScore(this)
             }
         }
     }

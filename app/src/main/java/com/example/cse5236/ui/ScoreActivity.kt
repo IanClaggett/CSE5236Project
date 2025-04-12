@@ -34,8 +34,8 @@ class ScoreActivity : AppCompatActivity() {
                 if (document != null) {
                     lateinit var userData: Map<Any, Any>
                     userData = document.data as Map<Any, Any>
-                    val score = Integer.parseInt(userData.get("Username").toString())
-                    val username = userData.get("Score")
+                    val score = Integer.parseInt(userData.get("Score").toString())
+                    val username = userData.get("Username")
                     if(score < finalScore){
                         val updateMap = mutableMapOf("Username" to username.toString(), "Score" to finalScore)
                         fireStore.collection("UserInformationDB").document(it.email.toString()).set(updateMap).addOnSuccessListener {
