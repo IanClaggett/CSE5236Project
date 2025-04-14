@@ -34,9 +34,17 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.robolectric:robolectric:4.14")
+    testImplementation("androidx.test:core:1.5.0")
     implementation(libs.firebase.auth)
     implementation("com.google.firebase:firebase-firestore-ktx:24.8.1")
     implementation(platform("com.google.firebase:firebase-bom:33.10.0"))
