@@ -15,9 +15,9 @@ class GameViewModel : ViewModel() {
     }
 
     suspend fun scoreDelay(gameActivity : GameActivity) {
+        gameActivity.showNextQuote();
         delay(100L);
         gameActivity.score++;
-        gameActivity.showNextQuote();
         gameActivity.scoreUpdating = false;
     }
 
@@ -28,7 +28,7 @@ class GameViewModel : ViewModel() {
     }
 
     suspend fun skipDelay(gameActivity : GameActivity) {
-        delay(100L);
         gameActivity.showNextQuote();
+        delay(100L);
     }
 }
