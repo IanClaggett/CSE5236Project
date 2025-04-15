@@ -18,6 +18,11 @@ import com.google.gson.annotations.SerializedName
 import com.google.gson.reflect.TypeToken
 import java.io.InputStream
 import kotlin.math.sqrt
+import android.graphics.Color
+import android.media.MediaPlayer
+import android.os.Handler
+import android.os.Looper
+import android.view.View
 
 class GameActivity : AppCompatActivity(), SensorEventListener {
 
@@ -31,6 +36,7 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
     private var highScore = 0
     private var characterHintShown = false
     var scoreUpdating = false
+    private var gameEnded = false
 
     private lateinit var quoteText: TextView
     private lateinit var hintLabel: TextView
@@ -47,27 +53,63 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
         hintLabel = findViewById(R.id.hintLabel)
         timerText = findViewById(R.id.timerText)
 
-        val difficulty = intent.getStringExtra("difficulty")
-        timeLeftInMillis = when (difficulty) {
-            "easy" -> 120000
-            "medium" -> 60000
-            "hard" -> 30000
-            else -> 60000
-        }
-
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
-
         loadQuotes()
         loadHighScore()
 
-        // ✅ Only proceed if quotes were successfully loaded
-        if (quoteList.isNotEmpty()) {
-            showNextQuote()
-            startTimer()
+        if (savedInstanceState != null) {
+            timeLeftInMillis = savedInstanceState.getLong("timeLeftInMillis", 60000)
+            score = savedInstanceState.getInt("score", 0)
+            currentIndex = savedInstanceState.getInt("currentIndex", 0)
+            showQuoteByIndex(currentIndex)
         } else {
-            Toast.makeText(this, "Could not load quotes.", Toast.LENGTH_SHORT).show()
-            finish()
+            val difficulty = intent.getStringExtra("difficulty")
+            timeLeftInMillis = when (difficulty) {
+                "easy" -> 120000
+                "medium" -> 60000
+                "hard" -> 30000
+                else -> 60000
+            }
+            showNextQuote()
         }
+
+        startTimer()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putLong("timeLeftInMillis", timeLeftInMillis)
+        outState.putInt("score", score)
+        outState.putInt("currentIndex", currentIndex)
+    }
+
+    fun showQuoteByIndex(index: Int) {
+        if (quoteList.isNotEmpty()) {
+            val quote = quoteList[index]
+            quoteText.text = "\"${quote.quote}\""
+            characterHintShown = false
+        }
+    }
+
+    fun flashColor(color: Int) {
+        val rootView = findViewById<View>(android.R.id.content)
+        val original = rootView.background
+        rootView.setBackgroundColor(color)
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            rootView.background = original
+        }, 200)
+    }
+
+    fun playSound(soundResId: Int) {
+        val prefs = getSharedPreferences("game", Context.MODE_PRIVATE)
+        val audioEnabled = prefs.getBoolean("audioEnabled", true)
+
+        if (!audioEnabled) return
+
+        val mediaPlayer = MediaPlayer.create(this, soundResId)
+        mediaPlayer.setOnCompletionListener { it.release() }
+        mediaPlayer.start()
     }
 
     private fun loadQuotes() {
@@ -104,6 +146,9 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
     }
 
     private fun endGame() {
+        if (gameEnded) return
+        gameEnded = true
+
         saveHighScore()
         val intent = Intent(this, ScoreActivity::class.java)
         intent.putExtra("score", score)
@@ -137,6 +182,9 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
     override fun onPause() {
         super.onPause()
         sensorManager.unregisterListener(this)
+        if (::timer.isInitialized) {
+            timer.cancel()
+        }
     }
 
     override fun onSensorChanged(event: SensorEvent?) {

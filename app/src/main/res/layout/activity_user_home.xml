@@ -25,13 +25,4 @@
         android:textSize="18sp"
         android:layout_marginTop="10dp"/>
 
-    <Button
-        android:id="@+id/btnQuotes"
-        style="@style/AnimeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:text="Quotes"
-        android:textSize="18sp"
-        android:layout_marginTop="10dp"/>
-
 </LinearLayout>

@@ -14,7 +14,6 @@ class UserHomeActivity : AppCompatActivity() {
 
         val changeUserBtn = findViewById<Button>(R.id.btnChangeUser)
         val playBtn = findViewById<Button>(R.id.btnPlay)
-        val quotesBtn = findViewById<Button>(R.id.btnQuotes)
 
         changeUserBtn.setOnClickListener{
             val intent = Intent(this, UserSelectActivity::class.java)
@@ -26,9 +25,6 @@ class UserHomeActivity : AppCompatActivity() {
             val intent = Intent(this, DifficultyActivity::class.java)
             startActivity(intent)
             finish()
-        }
-        quotesBtn.setOnClickListener{
-            //go to quotes screen
         }
     }
 
